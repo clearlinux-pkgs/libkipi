@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkipi
-Version  : 18.12.2
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.12.2/src/libkipi-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/libkipi-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/libkipi-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.3/src/libkipi-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/libkipi-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/libkipi-18.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -23,10 +23,8 @@ BuildRequires : libpng-dev
 BuildRequires : tiff-dev
 
 %description
-kipicmd - Allows you to start kipi-plugins from the command line
-This program can be used to easily start kipi-plugins from the command line
-which is useful when developing plugins. You can specify which action of the plugin
-should be called and which images/albums should be reported as 'currently selected'.
+KIPI Library (KDE Image Program Interface)
+-- AUTHORS ------------------------------------------------------------
 
 %package data
 Summary: data components for the libkipi package.
@@ -66,22 +64,23 @@ license components for the libkipi package.
 
 
 %prep
-%setup -q -n libkipi-18.12.2
+%setup -q -n libkipi-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549893771
+export SOURCE_DATE_EPOCH=1552011037
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549893771
+export SOURCE_DATE_EPOCH=1552011037
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkipi
 cp COPYING %{buildroot}/usr/share/package-licenses/libkipi/COPYING
