@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkipi
-Version  : 18.12.3
-Release  : 6
-URL      : https://download.kde.org/stable/applications/18.12.3/src/libkipi-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/libkipi-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/libkipi-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.0/src/libkipi-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/libkipi-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/libkipi-19.04.0.tar.xz.sig
 Summary  : An interface to use kipi-plugins from a KDE application
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -65,14 +65,14 @@ license components for the libkipi package.
 
 
 %prep
-%setup -q -n libkipi-18.12.3
+%setup -q -n libkipi-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555352427
+export SOURCE_DATE_EPOCH=1555624419
 mkdir -p clr-build
 pushd clr-build
 %cmake .. -DBUILD_TESTING=OFF
@@ -80,7 +80,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555352427
+export SOURCE_DATE_EPOCH=1555624419
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkipi
 cp COPYING %{buildroot}/usr/share/package-licenses/libkipi/COPYING
