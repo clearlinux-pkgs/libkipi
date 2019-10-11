@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkipi
-Version  : 19.08.1
-Release  : 13
-URL      : https://download.kde.org/stable/applications/19.08.1/src/libkipi-19.08.1.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.1/src/libkipi-19.08.1.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.1/src/libkipi-19.08.1.tar.xz.sig
+Version  : 19.08.2
+Release  : 14
+URL      : https://download.kde.org/stable/applications/19.08.2/src/libkipi-19.08.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.2/src/libkipi-19.08.2.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.2/src/libkipi-19.08.2.tar.xz.sig
 Summary  : An interface to use kipi-plugins from a KDE application
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -66,14 +66,14 @@ license components for the libkipi package.
 
 
 %prep
-%setup -q -n libkipi-19.08.1
+%setup -q -n libkipi-19.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567715411
+export SOURCE_DATE_EPOCH=1570774801
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -86,11 +86,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake .. -DBUILD_TESTING=OFF
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567715411
+export SOURCE_DATE_EPOCH=1570774801
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkipi
 cp COPYING %{buildroot}/usr/share/package-licenses/libkipi/COPYING
