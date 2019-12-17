@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkipi
-Version  : 19.08.3
-Release  : 15
-URL      : https://download.kde.org/stable/applications/19.08.3/src/libkipi-19.08.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.3/src/libkipi-19.08.3.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.3/src/libkipi-19.08.3.tar.xz.sig
+Version  : 19.12.0
+Release  : 16
+URL      : https://download.kde.org/stable/release-service/19.12.0/src/libkipi-19.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.0/src/libkipi-19.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.0/src/libkipi-19.12.0.tar.xz.sig
 Summary  : An interface to use kipi-plugins from a KDE application
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -66,14 +66,15 @@ license components for the libkipi package.
 
 
 %prep
-%setup -q -n libkipi-19.08.3
+%setup -q -n libkipi-19.12.0
+cd %{_builddir}/libkipi-19.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573190431
+export SOURCE_DATE_EPOCH=1576580929
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -90,12 +91,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1573190431
+export SOURCE_DATE_EPOCH=1576580929
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkipi
-cp %{_builddir}/libkipi-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/libkipi/075bb44a94e785a073154a32aa32554587f330f2
-cp %{_builddir}/libkipi-19.08.3/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libkipi/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/libkipi-19.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkipi/1568befcb09e881d29dd760911ceeb4e2d810884
+cp %{_builddir}/libkipi-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/libkipi/075bb44a94e785a073154a32aa32554587f330f2
+cp %{_builddir}/libkipi-19.12.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libkipi/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/libkipi-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkipi/1568befcb09e881d29dd760911ceeb4e2d810884
 pushd clr-build
 %make_install
 popd
