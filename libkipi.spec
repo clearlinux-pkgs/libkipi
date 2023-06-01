@@ -7,7 +7,7 @@
 #
 Name     : libkipi
 Version  : 23.04.1
-Release  : 55
+Release  : 56
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/libkipi-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/libkipi-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/libkipi-23.04.1.tar.xz.sig
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684776395
+export SOURCE_DATE_EPOCH=1685641518
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -112,7 +112,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684776395
+export SOURCE_DATE_EPOCH=1685641518
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkipi
 cp %{_builddir}/libkipi-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkipi/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -140,7 +140,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Kipi.so
 /usr/include/KF5/KIPI/KIPI/ConfigWidget
 /usr/include/KF5/KIPI/KIPI/ImageCollection
 /usr/include/KF5/KIPI/KIPI/ImageCollectionSelector
@@ -172,7 +171,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Kipi.so.32.0.0
 /V3/usr/lib64/libKF5Kipi.so.5.2.0
 /usr/lib64/libKF5Kipi.so.32.0.0
 /usr/lib64/libKF5Kipi.so.5.2.0
