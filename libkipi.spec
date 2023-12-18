@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkipi
-Version  : 23.08.3
-Release  : 63
-URL      : https://download.kde.org/stable/release-service/23.08.3/src/libkipi-23.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.3/src/libkipi-23.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.3/src/libkipi-23.08.3.tar.xz.sig
+Version  : 23.08.4
+Release  : 64
+URL      : https://download.kde.org/stable/release-service/23.08.4/src/libkipi-23.08.4.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.4/src/libkipi-23.08.4.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.4/src/libkipi-23.08.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -73,15 +73,15 @@ license components for the libkipi package.
 
 
 %prep
-%setup -q -n libkipi-23.08.3
-cd %{_builddir}/libkipi-23.08.3
+%setup -q -n libkipi-23.08.4
+cd %{_builddir}/libkipi-23.08.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1702017752
+export SOURCE_DATE_EPOCH=1702930542
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -140,7 +140,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1702017752
+export SOURCE_DATE_EPOCH=1702930542
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkipi
 cp %{_builddir}/libkipi-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkipi/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
